@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ BE4R - Polar.inc©</title>
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(to bottom, #444, black);
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            min-height: 3000px;
+        }
+        .header {
+            position: relative;
+            width: 100%;
+            max-height: 300px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .header-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .header-text h1 {
+            margin: 0;
+            font-size: 3em;
+            text-shadow: 2px 2px 5px white;
+        }
+        .header-text p {
+            margin: 5px 0 0;
+            font-size: 1.4em;
+        }
+        .section {
+            background: rgba(100, 100, 100, 0.6);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 50px auto;
+            max-width: 900px;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .profile img {
+            width: 350px;
+            height: auto;
+            border-radius: 50%;
+            margin-right: 50px;
+        }
+        .profile-text {
+            max-width: 600px;
+            font-size: 1.5em;
+        }
+        .events p {
+            font-size: 1.3em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid white;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+    <script>
+        function generateRandomPlaces(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        function updatePlaces() {
+            let elements = document.querySelectorAll('.places-left');
+            let colors = ["red", "orange", "yellow", "green"];
+
+            elements.forEach(el => {
+                let maxPlaces = parseInt(el.getAttribute('data-max')); // Récupère le max depuis l'attribut data
+                let placesLeft = generateRandomPlaces(0, maxPlaces);
+                let colorIndex = Math.min(Math.floor(placesLeft / (maxPlaces / 3)), 3);
+                el.innerHTML = `${placesLeft} places restantes`;
+                el.style.color = colors[colorIndex];
+            });
+        }
+    </script>
+</head>
+<body onload="updatePlaces()">
+    <div class="header">
+        <img src="disco.png" alt="Image Disco">
+        <div class="header-text">
+            <h1>DJ B.E.4.R</h1>
+            <p>Animation et sonorisation pour vos soirées et événements</p>
+        </div>
+    </div>
+    <div class="section profile">
+        <img src="DJ_BER.png" alt="DJ B.E.4.R">
+        <div class="profile-text">
+            <h2>À propos de DJ B.E.4.R</h2>
+            <p>DJ B.E.4.R est un artiste passionné et talentueux, spécialisé dans l’animation de soirées exceptionnelles.<br><br>		
+               Depuis plusieurs années, il fait danser les foules avec ses mix uniques qui combinent différents styles musicaux,
+               de l’électro au rock en passant par la house et le hip-hop.<br><br> Son expérience et son sens du rythme font de lui un DJ incontournable
+               pour toutes sortes d’événements, qu’il s’agisse de mariages, d’anniversaires, de festivals ou de soirées privées.
+               <br><br>Son objectif : offrir des moments inoubliables et créer une ambiance explosive à chaque prestation !</p>
+        </div>
+    </div>
+    <div class="section events">
+        <h2>Événements passés</h2>
+        <p><B>🎉 12 juillet 2024 – Anniversaire de "Hippie LaVache"</B><br><br>
+Une célébration haute en couleur pour "Hippie LaVache", la vache hippie excentrique au mode de vie déjanté. Une soirée aussi folle que son protagoniste !</p>
+        <p><B>💍 10 Mars 2025 - Mariage du prince des ours "Théo" et de "Cute"</B><br><br>
+Un événement unique où le prince des ours, "Théo", s’est travesti pour épouser "Cute", un chien au caractère bien particulier. Une union insolite qui a marqué les esprits !</p>
+        <p><B>🎂 3 février 2025 – Anniversaire de "Yanis"</B><br><br>
+Un moment spécial pour "Yanis", le chat élégant et charismatique, maître de DJ BE4R, d’Hippie LaVache, de "Polaire" l’ours polaire avocat et huissier, ainsi que d’autres compagnons animaliers emblématiques.</p>
+        <p><B>🌟 26 août 2024 – Soirée avec des personnalités célèbres</B><br><br>
+Une rencontre exceptionnelle réunissant des figures incontournables comme "Gaya", la reine des chiennes, "Hippie LaVache", "Josianne", la reine des ours, "Polaire", et bien d’autres célébrités du monde animal.</p>
+        <p><B>🎊 2 Mars 2025 - Enterrement de vie de garçon de "Théo"</B><br><br>
+Avant de dire "oui" à "Gaya", la reine des chiennes, "Théo" a célébré sa dernière soirée de célibataire dans une ambiance mémorable, entouré de ses amis et compagnons de toujours.</p>
+    </div>
+    <div class="section schedule">
+        <h2>Planning des prochains événements</h2>
+        <table class="events-table">
+            <tr>
+                <th>Date</th>
+                <th>Titre de l'événement</th>
+                <th>Détails</th>
+                <th>Public/Privé</th>
+            </tr>
+            <tr>
+                <td>28/03/2025</td>
+                <td>Soirée Electro/Rock & Karaoké</td>
+                <td>Une soirée animée mélangeant rock et électro avec une session karaoké.</td>
+                <td>Public - <span class="places-left" data-max="25"></span></td>
+            </tr>
+            <tr>
+                <td>29/03/2025</td>
+                <td>Soirée cinéma et musique personnalisée</td>
+                <td>Projection de films avec accompagnement musical adapté.</td>
+                <td>Public - <span class="places-left" data-max="25"></span></td>
+            </tr>
+            <tr>
+                <td>01/04/2025</td>
+                <td>Soirée "Apporte ton poisson"</td>
+                <td>Un événement spécial pour le poisson d'avril.</td>
+                <td>Public - <span class="places-left" data-max="35"></span></td>
+            </tr>
+            <tr>
+                <td>17/04/2025</td>
+                <td>Soirée VIP des personnalités célèbres</td>
+                <td>Un rassemblement privé pour les VIP et célébrités.</td>
+                <td>Privé</td>
+            </tr>
+            <tr>
+                <td>06/05/2025</td>
+                <td>Soirée d'anniversaire pour "Mam"</td>
+                <td>Une fête d'anniversaire ouverte à tous.</td>
+                <td>Public - Places illimitées</td>
+            </tr>
+        </table>
+    </div>
+	<div class="section contact">
+    <div style="display: flex; align-items: center; justify-content: center;">
+        <img src="polar_inc_logo.png" alt="Logo Polar.inc" style="width: 150px; height: auto; margin-right: 50px;">
+        <div class="contact-text">
+            <h2>Contact et Réservation</h2>
+            <p>
+                Vous souhaitez faire appel à <b>DJ B.E.4.R</b> pour animer votre événement ? Toutes les réservations passent par 
+                l'entreprise <b>Polar.inc©</b>, une agence spécialisée dans l'organisation et la gestion d'événements musicaux.
+            </p>
+            <p>
+                En fonction du type de soirée et de vos besoins spécifiques, le tarif d'une prestation peut varier entre <b>50€ et 400€</b>. 
+                Que ce soit pour un anniversaire, un mariage, une soirée privée ou un festival, nous nous engageons à vous offrir une 
+                expérience inoubliable avec un son et une ambiance de qualité professionnelle.
+            </p>
+            <p>
+                Pour obtenir un devis personnalisé ou pour toute information complémentaire, n'hésitez pas à nous contacter. 
+                L'équipe de <b>Polar.inc©</b> est à votre disposition pour répondre à vos questions et vous accompagner dans l'organisation de votre événement.
+            </p>
+            <p style="text-align: center; font-size: 1.2em; font-weight: bold;">Polar.inc</p>
+            <p style="text-align: center; font-size: 1.1em;">
+                📧 Contactez-nous : <a href="mailto:Polar.DJ.BE4R@gmail.com" style="color: white; text-decoration: underline;">Polar.DJ.BE4R@gmail.com</a>
+            </p>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
